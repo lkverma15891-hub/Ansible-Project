@@ -1,1 +1,8 @@
-localhost ansible_connection=local
+#localhost ansible_connection=local
+[local]
+wsl ansible_host=172.19.93.149
+
+[local:vars]
+ansible_user=loveneeshkumar
+ansible_connection=ssh
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
