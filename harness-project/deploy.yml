@@ -1,15 +1,26 @@
-- name: Install and Start Nginx
-  hosts: localhost
-  become: yes
+# - name: Install and Start Nginx
+#   hosts: localhost
+#   become: yes
+
+#   tasks:
+#     - name: Install nginx
+#       apt:
+#         name: nginx
+#         state: present
+#         update_cache: yes
+
+#     - name: Start nginx
+#       service:
+#         name: nginx
+#         state: started
+
+- name: Install/Update Notepad++
+  hosts: windows
+  gather_facts: no
 
   tasks:
-    - name: Install nginx
-      apt:
-        name: nginx
-        state: present
-        update_cache: yes
 
-    - name: Start nginx
-      service:
-        name: nginx
-        state: started
+    - name: Install or Update Notepad++
+      win_chocolatey:
+        name: notepadplusplus
+        state: latest
