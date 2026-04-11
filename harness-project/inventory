@@ -1,8 +1,19 @@
 #localhost ansible_connection=local
-[local]
-wsl ansible_host=172.19.93.149
+#[local]
+#wsl ansible_host=172.19.93.149
 
-[local:vars]
+#[local:vars]
+#ansible_user=loveneeshkumar
+#ansible_connection=ssh
+#ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[windows]
+win1 ansible_host=172.19.93.149
+
+[windows:vars]
 ansible_user=loveneeshkumar
-ansible_connection=ssh
-ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_password=YourPassword
+ansible_connection=winrm
+ansible_winrm_transport=ntlm
+ansible_port=5985
+ansible_winrm_server_cert_validation=ignore
